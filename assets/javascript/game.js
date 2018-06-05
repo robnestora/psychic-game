@@ -7,13 +7,14 @@ var losses = 0;
 var guesses = 9;
 var computerGuess = letters[Math.floor(Math.random() * letters.length)];
 var answer = computerGuess.toUpperCase();
-document.onkeyup = function(event) {
 
+document.onkeyup = function(event) {
+  
     // Determines which key was pressed.
     var userGuess = event.key;
  
 
-// check that computerGuess isnt being repeatedly being refreshed with each keystroke    
+   
 console.log(computerGuess);
     if (guesses === 1) {
         losses++;
@@ -23,7 +24,8 @@ console.log(computerGuess);
         document.getElementById('guessed').innerHTML = "";
         document.getElementById('loser').innerHTML = "YOU LOSE, LOSER!!!  The correct answer was " + answer + "!";
         document.getElementById('evil').play();
-
+        computerGuess = letters[Math.floor(Math.random() * letters.length)];
+        answer = computerGuess.toUpperCase();
     }
    else if (userGuess === computerGuess) {
         wins++;
@@ -33,6 +35,8 @@ console.log(computerGuess);
         document.getElementById('guesses').innerHTML = guesses;
         document.getElementById('loser').innerHTML = "YOU MUST BE PSYCHIC! The correct answer was " + answer + "!";
         document.getElementById('brilliant').play();
+        computerGuess = letters[Math.floor(Math.random() * letters.length)];
+        answer = computerGuess.toUpperCase();
     
     }
     else if(userGuess !== computerGuess) {
